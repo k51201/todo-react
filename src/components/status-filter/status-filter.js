@@ -1,18 +1,14 @@
-import React, { Component } from 'react'
-
 import './status-filter.css'
 
-export default class StatusFilter extends Component {
-    buttons = [
+export default function StatusFilter({ selected, changeFilter }) {
+    const buttons = [
         { key: 'all', label: 'Všechny' },
         { key: 'active', label: 'Aktivní' },
         { key: 'done', label: 'Dokončené' },
     ]
 
-    renderButton = ({ key, label }) => {
-        const { selected, changeFilter } = this.props
-
-        const className = 'btn' + (selected === key ? ' btn-info' : ' btn-outline-secondary')
+    const renderButton = ({ key, label }) => {
+        const className = `btn ${selected === key ? ' btn-info' : ' btn-outline-secondary'}`
         return (
             <button type="button" key={key}
                 className={className}
@@ -23,7 +19,5 @@ export default class StatusFilter extends Component {
         )
     }
 
-    render() {
-        return <div className="btn-group">{this.buttons.map(this.renderButton)}</div>
-    }
+    return <div className="btn-group">{buttons.map(renderButton)}</div>
 }

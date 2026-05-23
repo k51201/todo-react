@@ -1,8 +1,6 @@
-import React from 'react'
-
 import './header.css'
 
-const Header = ({ toDo, done }) => {
+export default function Header({ toDo, done }) {
     return (
         <div className="header d-flex">
             <h1>Seznam TODO</h1>
@@ -10,5 +8,3 @@ const Header = ({ toDo, done }) => {
         </div>
     )
 }
-
-export default Header
